@@ -3,16 +3,15 @@ body {
 	background: #101320;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
-	padding-top: 60px;
+	padding-top: 10px;
 }
 
 h1, h2, h3 {
-	padding: 10px 0;
+	padding-bottom: 10px;
 }
 
 h1 {
 	font-size: 3em;
-	text-align: center;
 }
 
 h2 {
@@ -37,6 +36,74 @@ form {
 input, button {
 	background: none;
 	color: white;
-	border: solid 1px white;
 	padding: 5px;
 }
+
+.responsive-box {
+	width: 95%;
+	margin-top: 0;
+}
+
+.header {
+	height: 50px;
+	padding-bottom: 15px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.title {
+	float: left;
+}
+
+.welcome {
+	width: 350px;
+	text-align: left;
+}
+
+.name {
+	
+}
+
+.button {
+	width: 125px;
+}
+
+/* Utility classes */
+
+.border {
+	border: solid 1px white;
+}
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.pad10 {
+	padding: 10px;
+}
+
+/* Media Queryies */
+/* default is xs */
+
+/* sm */
+@media (min-width: 550px) {
+	.responsive-box {
+		width: 550px;
+	}
+}
+
+/* md */
+@media (min-width: 800px) {
+	.responsive-box {
+		width: 700px
+	}
+}
+
+/* lg */
+@media (min-width: 1100px) {
+	.responsive-box {
+		width: 900px;
+	}
+}
+
