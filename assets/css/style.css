@@ -1,0 +1,42 @@
+body {
+	color: white;
+	background: #101320;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	padding-top: 60px;
+}
+
+h1, h2, h3 {
+	padding: 10px 0;
+}
+
+h1 {
+	font-size: 3em;
+	text-align: center;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+p {
+	font-size: 1.3em;
+	padding: 10px 0 0 0;
+}
+
+form {
+	margin-right: auto;
+	margin-left: auto;
+	width: 300px;
+}
+
+input, button {
+	background: none;
+	color: white;
+	border: solid 1px white;
+	padding: 5px;
+}
