@@ -7,19 +7,19 @@ body {
 }
 
 h1, h2, h3 {
-	padding-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 2.3em;
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
 h3 {
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 p {
@@ -42,10 +42,11 @@ input, button {
 .responsive-box {
 	width: 95%;
 	margin-top: 0;
+	position: relative;
 }
 
 .header {
-	height: 50px;
+	height: 30px;
 	padding-bottom: 15px;
 	margin-bottom: 10px;
 	width: 100%;
@@ -60,12 +61,32 @@ input, button {
 	text-align: left;
 }
 
-.name {
-	
+.button {
+	width: 120px;
+	position: relative;
+	cursor: pointer;
 }
 
-.button {
-	width: 125px;
+
+.button.through {
+	width: 33%;
+	float: left;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+.welcome.through {
+	width: 100%;
+}
+
+.hover-dash {
+	float: right;
+}
+
+/* Content */
+
+.content-div {
+	
 }
 
 /* Utility classes */
@@ -84,19 +105,53 @@ input, button {
 }
 
 /* Media Queryies */
-/* default is xs */
+/* default is sm */
 
-/* sm */
-@media (min-width: 550px) {
+/* xxs */
+@media (max-width: 395px) {
 	.responsive-box {
-		width: 550px;
+		width: 100%;
+	}
+	.welcome {
+		width: 90%;
+	}
+	.welcome.pad10 {
+		padding: none;
+	}
+	.welcome.border {
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
+	}
+}
+
+/* sm-md */
+
+@media (min-width: 700px) {
+	h1 {
+		font-size: 3em;
+	}
+	h2 {
+		font-size: 2.0;
+	}
+	h3 {
+		font-size: 1.5;
+	}
+	.responsive-box {
+		width: 650px;
+	}
+	.header {
+		height: 50px;
+	}
+	.button {
+		float: none;
 	}
 }
 
 /* md */
 @media (min-width: 800px) {
 	.responsive-box {
-		width: 700px
+		width: 750px
 	}
 }
 
