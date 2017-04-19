@@ -1,18 +1,32 @@
 $( document ).ready(function () {
   var symbol;
   var atWelcome = true;
+  var about = $('<div id ="about-content">');
+  var portfolio = $('<div id ="portfolio-content">');
+  var contact = $('<div id ="contact-content">');
+  var htmlSection = {
+    about: about.load('about.html'),
+    portfolio: portfolio.load('portfolio.html'),
+    contact: contact.load('contact.html')
+  }
+
   
   function addSectionToDomAndAnimate (sectionName) {
     var contentDiv = $('<div>');
     contentDiv.attr('id', 'drawer-' + sectionName);
     contentDiv.attr('class', 'content-div invisible');
     $('.responsive-box').append(contentDiv);
+    addContent(sectionName);
     makeVisible(sectionName);
     animateOpen();
   }
   
+  function addContent(sectionName) {
+    $('.content-div').append(htmlSection[sectionName]);
+  }
+  
   function makeVisible(sectionName) {
-    $('#drawer-' + sectionName).attr('class', 'content-div border visible');
+    $('#drawer-' + sectionName).attr('class', 'content-div border pad10 visible');
   }
   
   function animateOpen () {
@@ -21,8 +35,8 @@ $( document ).ready(function () {
   
   function animateCloseAndRemove(callback, param) {
     var height = $('.content-div').css('height');
-    $('.content-div').css('height', height);
-    $('.content-div').animate({'top': '200%'}, 200, 'swing', function () {
+    $('.content-div').css({'height': height, 'overflow': 'hidden'});
+    $('.content-div').animate({'left': '100%'}, 300, 'swing', function () {
       removeFromDom();
       setTimeout(function () {
         callback(param)

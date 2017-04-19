@@ -89,8 +89,6 @@ input, button {
 	float: right;
 }
 
-/* Content */
-
 .content-div {
 	position: absolute;
 	top: 93px;
@@ -98,6 +96,7 @@ input, button {
 	left: 0px;
 	right: auto;
 	background: #101320;
+	overflow: auto;
 }
 
 /* Utility classes */
