@@ -2,18 +2,32 @@ $( document ).ready(function () {
   var symbol;
   var atWelcome = true;
   
-  function addSectionToDom (sectionName) {
+  function addSectionToDomAndAnimate (sectionName) {
     var contentDiv = $('<div>');
-    contentDiv.attr('id', sectionName + '-container');
-    contentDiv.attr('class', 'content-div');
+    contentDiv.attr('id', 'drawer-' + sectionName);
+    contentDiv.attr('class', 'content-div invisible');
+    $('.responsive-box').append(contentDiv);
+    makeVisible(sectionName);
+    animateOpen();
   }
   
-  function display(sectionName, sectionType) {
-    
+  function makeVisible(sectionName) {
+    $('#drawer-' + sectionName).attr('class', 'content-div border visible');
   }
   
-  function animateOpen (sectionName) {
-    
+  function animateOpen () {
+    $('.content-div').animate({'right': '0px'}, 200);
+  }
+  
+  function animateCloseAndRemove(callback, sectionName) {
+    $('.content-div').animate({'height': '0'}, 200, 'swing', function () {
+      removeFromDom();
+      callback(sectionName);
+    });
+  }
+  
+  function removeFromDom () {
+    $('.content-div').remove();
   }
   
   $('.button').click(function () {
@@ -21,7 +35,7 @@ $( document ).ready(function () {
     var dashArr = [];
     var activeButton = $(this);
     var sectionName = activeButton.attr('id');
-    symbol = ':';
+    symbol = '=';
     for (var i = 0; i < 3; i++) {
       $('.button').eq(i).children().children().html('');
       $('.button').eq(i).css('border-bottom', 'none');
@@ -38,10 +52,10 @@ $( document ).ready(function () {
       $('.welcome').animate({
         'margin-left': 0
       }, 200, function () {
-        addSectionToDom(sectionName);
-        display(sectionName, 'drawer');
+        addSectionToDomAndAnimate(sectionName);
+        makeVisible(sectionName, 'drawer');
         animateOpen(sectionName);
-        display(sectionName, 'content');
+//         display(sectionName, 'content');
       });
       // Animate the title section
       var animateDashesInterval = setInterval(function(){
@@ -56,6 +70,8 @@ $( document ).ready(function () {
         }
       }, 20);
       atWelcome = false;
+    } else {
+      animateCloseAndRemove(addSectionToDomAndAnimate, sectionName);
     }
   });
   $('.button>h3').hover(function () {
@@ -63,15 +79,15 @@ $( document ).ready(function () {
 
     } else {
       symbol = $(this).children().html();
-      if (symbol !== ':') { 
-        $(this).children().html('-');
+      if (symbol !== '=') { 
+        $(this).children().html('&ndash;');
       }
     }
   }, function () {
     if ($(window).width() < 550) { 
       
     } else {
-      if (symbol !== ':') {  
+      if (symbol !== '=') {  
         $(this).children().html(symbol);
       }
     }

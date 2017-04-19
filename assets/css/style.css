@@ -1,9 +1,14 @@
+html, body {
+	height: 100%;
+}
+
 body {
 	color: white;
 	background: #101320;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 	padding-top: 10px;
+	bottom: 0;
 }
 
 h1, h2, h3 {
@@ -43,6 +48,7 @@ input, button {
 	width: 95%;
 	margin-top: 0;
 	position: relative;
+	height: 100%;
 }
 
 .header {
@@ -62,7 +68,7 @@ input, button {
 }
 
 .button {
-	width: 120px;
+	width: 110px;
 	position: relative;
 	cursor: pointer;
 }
@@ -72,7 +78,7 @@ input, button {
 	width: 33%;
 	float: left;
 	text-align: center;
-	padding-bottom: 5px;
+	padding-bottom: 2px;
 }
 
 .welcome.through {
@@ -86,7 +92,11 @@ input, button {
 /* Content */
 
 .content-div {
-	
+	top: 93px;
+	bottom: 0px;
+	left: 0px;
+	right: auto;
+	background: #101320;
 }
 
 /* Utility classes */
@@ -104,10 +114,18 @@ input, button {
 	padding: 10px;
 }
 
-/* Media Queryies */
+.invisible {
+	display: none;
+}
+
+.visible {
+	display: auto;
+}
+
+/* Media Queries */
 /* default is sm */
 
-/* xxs */
+/* xs */
 @media (max-width: 395px) {
 	.responsive-box {
 		width: 100%;
@@ -127,7 +145,7 @@ input, button {
 
 /* sm-md */
 
-@media (min-width: 700px) {
+@media (min-width: 550px) {
 	h1 {
 		font-size: 3em;
 	}
@@ -138,13 +156,17 @@ input, button {
 		font-size: 1.5;
 	}
 	.responsive-box {
-		width: 650px;
+		width: 500px;
 	}
 	.header {
 		height: 50px;
 	}
 	.button {
 		float: none;
+	}
+	.content-div {
+		left: 127px;
+		bottom: 100px;
 	}
 }
 
