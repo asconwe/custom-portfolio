@@ -7,8 +7,6 @@ body {
 	background: #101320;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
-	padding-top: 10px;
-	bottom: 0;
 }
 
 h1, h2, h3 {
@@ -44,18 +42,24 @@ input, button {
 	padding: 5px;
 }
 
+big-box {
+	position: relative;
+	width: 100%;
+}
+
 .responsive-box {
-	width: 95%;
-	margin-top: 0;
 	position: relative;
 	height: 100%;
+	width: 95%;
+	margin-top: 0;
 }
 
 .header {
 	height: 30px;
-	padding-bottom: 15px;
-	margin-bottom: 10px;
 	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-bottom: 15px;
 }
 
 .title {
@@ -91,7 +95,7 @@ input, button {
 
 .content-div {
 	position: absolute;
-	top: 93px;
+	top: 89px;
 	bottom: 0px;
 	left: 0px;
 	right: auto;
@@ -157,6 +161,8 @@ input, button {
 	}
 	.responsive-box {
 		width: 500px;
+		margin-right: auto;
+		margin-left: auto;
 	}
 	.header {
 		height: 50px;
