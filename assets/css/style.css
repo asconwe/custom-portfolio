@@ -68,7 +68,7 @@ input, button {
 }
 
 .button {
-	width: 110px;
+	width: 107px;
 	position: relative;
 	cursor: pointer;
 }
@@ -92,6 +92,7 @@ input, button {
 /* Content */
 
 .content-div {
+	position: absolute;
 	top: 93px;
 	bottom: 0px;
 	left: 0px;

@@ -19,10 +19,14 @@ $( document ).ready(function () {
     $('.content-div').animate({'right': '0px'}, 200);
   }
   
-  function animateCloseAndRemove(callback, sectionName) {
-    $('.content-div').animate({'height': '0'}, 200, 'swing', function () {
+  function animateCloseAndRemove(callback, param) {
+    var height = $('.content-div').css('height');
+    $('.content-div').css('height', height);
+    $('.content-div').animate({'top': '200%'}, 200, 'swing', function () {
       removeFromDom();
-      callback(sectionName);
+      setTimeout(function () {
+        callback(param)
+      }, 200);
     });
   }
   
@@ -55,7 +59,6 @@ $( document ).ready(function () {
         addSectionToDomAndAnimate(sectionName);
         makeVisible(sectionName, 'drawer');
         animateOpen(sectionName);
-//         display(sectionName, 'content');
       });
       // Animate the title section
       var animateDashesInterval = setInterval(function(){
