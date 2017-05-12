@@ -1,21 +1,8 @@
 $( document ).ready(function () {
   var symbol;
   var atWelcome = true;
-  var about = $('<div id ="about-content">');
-  var portfolio = $('<div id ="portfolio-content">');
-  var contact = $('<div id ="contact-content">');
-  var htmlSection = {
-    about: about.load('about.html'),
-    portfolio: portfolio.load('portfolio.html'),
-    contact: contact.load('contact.html')
-  }
-
   
   function addSectionToDomAndAnimate (sectionName) {
-    var contentDiv = $('<div>');
-    contentDiv.attr('id', 'drawer-' + sectionName);
-    contentDiv.attr('class', 'content-div invisible');
-    $('.responsive-box').append(contentDiv);
     addContent(sectionName);
     makeVisible(sectionName);
     animateOpen();

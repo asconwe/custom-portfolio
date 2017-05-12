@@ -1,0 +1,29 @@
+{
+  "name": "custom-portfolio",
+  "version": "1.0.0",
+  "description": "My custom portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asconwe/custom-portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "August",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asconwe/custom-portfolio/issues"
+  },
+  "homepage": "https://github.com/asconwe/custom-portfolio#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "jquery": "^3.2.1",
+    "jquery-color": "^1.0.0"
+  }
+}
