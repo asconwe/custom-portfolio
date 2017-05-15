@@ -30,12 +30,6 @@ p {
 	padding: 10px 0 0 0;
 }
 
-form {
-	margin-right: auto;
-	margin-left: auto;
-	width: 300px;
-}
-
 input, button {
 	background: none;
 	color: white;
@@ -54,6 +48,7 @@ big-box {
 	margin-top: 0;
 }
 
+
 .header {
 	height: 30px;
 	width: 100%;
@@ -66,21 +61,17 @@ big-box {
 	float: left;
 }
 
-.welcome {
-	width: 350px;
-	text-align: left;
-}
-
 .button {
 	width: 107px;
 	position: relative;
+	float: left;
 	cursor: pointer;
+	padding: 10px 0;
 }
 
 
 .button.through {
 	width: 33%;
-	float: left;
 	text-align: center;
 	padding-bottom: 2px;
 }
@@ -94,13 +85,13 @@ big-box {
 }
 
 .content-div {
-	position: absolute;
-	top: 89px;
+	position: relative;
+	top: -150px;
 	bottom: 0px;
-	left: 0px;
-	right: auto;
+	left: 0x;
+	width: 0;
 	background: #101320;
-	overflow: auto;
+	overflow: hidden;
 }
 
 /* Utility classes */
@@ -133,17 +124,6 @@ big-box {
 @media (max-width: 395px) {
 	.responsive-box {
 		width: 100%;
-	}
-	.welcome {
-		width: 90%;
-	}
-	.welcome.pad10 {
-		padding: none;
-	}
-	.welcome.border {
-		border-left: none;
-		border-right: none;
-		border-bottom: none;
 	}
 }
 

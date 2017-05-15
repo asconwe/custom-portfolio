@@ -1,0 +1,21 @@
+.welcome {
+	width: 350px;
+	text-align: left;
+}
+
+@media (max-width: 395px) {
+	.welcome {
+		width: 90%;
+	}
+	.welcome.pad10 {
+		padding: none;
+	}
+	.welcome.border {
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
+	}
+}
+
+
+

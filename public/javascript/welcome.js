@@ -1,101 +1,64 @@
-$( document ).ready(function () {
-  var symbol;
-  var atWelcome = true;
-  
-  function addSectionToDomAndAnimate (sectionName) {
-    addContent(sectionName);
-    makeVisible(sectionName);
-    animateOpen();
-  }
-  
-  function addContent(sectionName) {
-    $('.content-div').append(htmlSection[sectionName]);
-  }
-  
-  function makeVisible(sectionName) {
-    $('#drawer-' + sectionName).attr('class', 'content-div border pad10 visible');
-  }
-  
-  function animateOpen () {
-    $('.content-div').animate({'right': '0px'}, 200);
-  }
-  
-  function animateCloseAndRemove(callback, param) {
-    var height = $('.content-div').css('height');
-    $('.content-div').css({'height': height, 'overflow': 'hidden'});
-    $('.content-div').animate({'left': '100%'}, 300, 'swing', function () {
-      removeFromDom();
+$(document).ready(function () {
+
+  const titleAnimation = {
+    frames: [
+      'August Conwel -',
+      'August Conwe --',
+      'August Conw --',
+      'August Con ---',
+      'August Co ---',
+      'August C ----',
+      'Augus C ----',
+      'Augu C -----',
+      'Aug C -----',
+      'Au C ------',
+      'A C ------',
+      'AC -------'
+    ], animateTitle: function animateTitle() {
+      const animationSpeed = 20;
+      let index = 0;
+      var animateTitleInterval = setInterval(function () {
+        console.log('interal', index);
+        $('.title').html(titleAnimation.frames[index]);
+        index++;
+      }, animationSpeed)
       setTimeout(function () {
-        callback(param)
-      }, 200);
-    });
+        console.log('set Timout');
+        clearInterval(animateTitleInterval);
+      }, animationSpeed * titleAnimation.frames.length);
+    }
   }
-  
-  function removeFromDom () {
-    $('.content-div').remove();
-  }
-  
+
+  categoryHover();
+
+  var symbol;
   $('.button').click(function () {
-    var dashes;
-    var dashArr = [];
-    var activeButton = $(this);
-    var sectionName = activeButton.attr('id');
+    const activeButton = $(this);
     symbol = '=';
-    for (var i = 0; i < 3; i++) {
-      $('.button').eq(i).children().children().html('');
+    for (let i = 0; i < 3; i++) {
+      //remove any underlines or equal signs indicating active button
+      $('.button').eq(i).children().html('');
       $('.button').eq(i).css('border-bottom', 'none');
     }
     if ($(window).width() < 550) {
+      // On small screens, move the buttons to the top by giving them css classes
       $('.welcome').attr('class', 'welcome through');
       $('.button').attr('class', 'button through');
-      $(this).css('border-bottom', 'solid 1px white');
+      // Give the active button a border
+      activeButton.css('border-bottom', 'solid 1px white');
     } else {
-      $(this).children().children().html(symbol);
+      activeButton.children().html(symbol);
     }
-    if (atWelcome) {  
-      // Animate the welcome page box
-      $('.welcome').animate({
-        'margin-left': 0
-      }, 200, function () {
-        addSectionToDomAndAnimate(sectionName);
-        makeVisible(sectionName, 'drawer');
-        animateOpen(sectionName);
-      });
-      // Animate the title section
-      var animateDashesInterval = setInterval(function(){
-        dashes = $('#dashes').html();
-        dashArr = dashes.split('');
-        if (dashArr.length > 5) {
-          dashArr.shift();
-          dashes = dashArr.join('');
-          $('#dashes').html(dashes);
-        } else {
-          clearInterval(animateDashesInterval);
-        }
-      }, 20);
-      atWelcome = false;
-    } else {
-      animateCloseAndRemove(addSectionToDomAndAnimate, sectionName);
-    }
+    // Animate the title section
+    titleAnimation.animateTitle();
+    // Animate the welcome page box
+    $('.welcome').animate({
+      'margin-left': 0
+    }, 250, function () {
+      sendRequest(activeButton);
+    });
   });
-  $('.button>h3').hover(function () {
-    if ($(window).width() < 550) { 
 
-    } else {
-      symbol = $(this).children().html();
-      if (symbol !== '=') { 
-        $(this).children().html('&ndash;');
-      }
-    }
-  }, function () {
-    if ($(window).width() < 550) { 
-      
-    } else {
-      if (symbol !== '=') {  
-        $(this).children().html(symbol);
-      }
-    }
-  });
   
-  
+
 });
