@@ -12,7 +12,7 @@ function routes(app) {
   
   app.get('/:page', function (req, res) {
     if (pages.hasOwnProperty(req.params.page)) {
-      return res.render(req.params.page, { title: 'content', name: 'AC -------'}) //, pages[req.params.page]);
+      return res.render(req.params.page, { title: 'content', name: 'A C ------'}) //, pages[req.params.page]);
     } 
     return res.render('notfound');
   });

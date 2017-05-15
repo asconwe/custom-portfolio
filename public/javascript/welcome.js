@@ -13,7 +13,8 @@ $(document).ready(function () {
       'Aug C -----',
       'Au C ------',
       'A C ------',
-      'AC -------'
+      'A C ------',
+      'A C ------'
     ], animateTitle: function animateTitle() {
       const animationSpeed = 20;
       let index = 0;
@@ -30,35 +31,16 @@ $(document).ready(function () {
   }
 
   categoryHover();
-
-  var symbol;
-  $('.button').click(function () {
-    const activeButton = $(this);
-    symbol = '=';
-    for (let i = 0; i < 3; i++) {
-      //remove any underlines or equal signs indicating active button
-      $('.button').eq(i).children().html('');
-      $('.button').eq(i).css('border-bottom', 'none');
-    }
-    if ($(window).width() < 550) {
-      // On small screens, move the buttons to the top by giving them css classes
-      $('.welcome').attr('class', 'welcome through');
-      $('.button').attr('class', 'button through');
-      // Give the active button a border
-      activeButton.css('border-bottom', 'solid 1px white');
-    } else {
-      activeButton.children().html(symbol);
-    }
+  
+  symbolOnClick(function(activeButtonId){
     // Animate the title section
     titleAnimation.animateTitle();
     // Animate the welcome page box
     $('.welcome').animate({
       'margin-left': 0
-    }, 250, function () {
-      sendRequest(activeButton);
-    });
+    }, 300, function(){
+      sendRequest(activeButtonId); 
+    }); 
   });
-
-  
 
 });

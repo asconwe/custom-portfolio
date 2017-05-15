@@ -76,6 +76,11 @@ big-box {
 	padding-bottom: 2px;
 }
 
+.welcome {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .welcome.through {
 	width: 100%;
 }
@@ -85,10 +90,8 @@ big-box {
 }
 
 .content-div {
-	position: relative;
-	top: -150px;
-	bottom: 0px;
-	left: 0x;
+	position: absolute;
+	top: 100px;
 	width: 0;
 	background: #101320;
 	overflow: hidden;
